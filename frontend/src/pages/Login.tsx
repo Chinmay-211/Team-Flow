@@ -45,7 +45,7 @@ export const Login: React.FC = () => {
         <div className="bg-indigo-950/40 p-4 rounded-2xl border border-indigo-500/20 space-y-2">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-indigo-400">
             <Sparkles className="w-4 h-4 text-indigo-400" />
-            <span>INTERVIEW QUICK DEMO PRESETS</span>
+            <span>QUICK DEMO PRESETS</span>
           </div>
           <div className="grid grid-cols-3 gap-2 pt-1">
             <button

@@ -37,14 +37,13 @@ services:
     restart: unless-stopped
     ports:
       - "3000:3000"
+    env_file:
+      - .env
     environment:
-      - NODE_ENV=development
-      - PORT=3000
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/teamflow?schema=public
-      - REDIS_URL=redis://redis:6379
-      - JWT_SECRET=teamflow_super_secret_jwt_key_interview_2026_change_in_prod
-      - AWS_REGION=us-east-1
-      - AWS_S3_BUCKET=teamflow-attachments-bucket
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/teamflow?schema=public
+      REDIS_URL: redis://redis:6379
     depends_on:
       postgres:
         condition: service_healthy
@@ -57,11 +56,12 @@ services:
       dockerfile: worker/Dockerfile
     container_name: teamflow-worker
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
-      - NODE_ENV=development
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/teamflow?schema=public
-      - REDIS_URL=redis://redis:6379
-      - AWS_REGION=us-east-1
+      NODE_ENV: production
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/teamflow?schema=public
+      REDIS_URL: redis://redis:6379
     depends_on:
       postgres:
         condition: service_healthy
