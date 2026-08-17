@@ -168,4 +168,3 @@ During a candidate technical interview, demonstrate these steps:
 - [Project Working & System Mechanics](docs/project-working.md)
 - [Architecture Blueprint](docs/architecture.md)
 - [REST API Specifications](docs/api.md)
-- [35+ Interview Q&A Preparation](docs/interview-questions.md)
