@@ -1,0 +1,105 @@
+@import "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css";
+
+/* Custom modern CSS polish & tokens */
+:root {
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --border-color: #334155;
+  --accent-primary: #6366f1;
+  --accent-hover: #4f46e5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #0b0f19;
+  color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Global Form Input Polish & Visibility Fix */
+input, textarea, select {
+  color: #f8fafc !important;
+  background-color: #020617 !important;
+  border-color: #334155 !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  color: #ffffff !important;
+  border-color: #6366f1 !important;
+}
+
+/* Placeholders visibility */
+input::placeholder, textarea::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+}
+
+/* Browser Autofill Text Color Fix (Chrome, Edge, Safari) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #f8fafc !important;
+  -webkit-box-shadow: 0 0 0px 1000px #020617 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Select options dropdown background & text */
+select option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* Slate utility fallback classes for Tailwind v2 */
+.bg-slate-950 { background-color: #020617 !important; }
+.bg-slate-900 { background-color: #0f172a !important; }
+.bg-slate-800 { background-color: #1e293b !important; }
+.bg-slate-700 { background-color: #334155 !important; }
+.text-slate-100 { color: #f8fafc !important; }
+.text-slate-200 { color: #e2e8f0 !important; }
+.text-slate-300 { color: #cbd5e1 !important; }
+.text-slate-400 { color: #94a3b8 !important; }
+.text-slate-500 { color: #64748b !important; }
+.border-slate-800 { border-color: #1e293b !important; }
+.border-slate-700 { border-color: #334155 !important; }
+
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.kanban-col {
+  min-height: 500px;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}

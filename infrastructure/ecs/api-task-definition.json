@@ -1,0 +1,38 @@
+{
+  "family": "teamflow-api-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::123456789012:role/TeamFlowEcsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::123456789012:role/TeamFlowApiTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "teamflow-api",
+      "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/teamflow-backend:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        { "name": "NODE_ENV", "value": "production" },
+        { "name": "PORT", "value": "3000" },
+        { "name": "AWS_REGION", "value": "us-east-1" },
+        { "name": "AWS_S3_BUCKET", "value": "teamflow-attachments-bucket" },
+        { "name": "AWS_SNS_TOPIC_ARN", "value": "arn:aws:sns:us-east-1:123456789012:teamflow-events" }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/teamflow-api",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
